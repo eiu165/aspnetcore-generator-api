@@ -16,8 +16,8 @@ Automate Building with a Dockerfile
 
 Composing an ASP.NET Core App
 
-`docker build -t aspnetcore/generator:multi .`
-`docker run --rm -it -p 8080:80 aspnetcore/generator:multi`
+    docker build -t aspnetcore/generator:multi . 
+    docker run --rm -it -p 8080:80 aspnetcore/generator:multi
 
 
 start a container and drop into the prompt
@@ -30,23 +30,27 @@ docker run --rm -it -v ${PWD}:/api -p 8080:80 microsoft/aspnetcore-build:2.0.8-2
 docker run --rm -it -v ${PWD}:C:\api -p 8080:80 microsoft/aspnetcore:2.0.8 
 
 
-#this worked for me
+# this worked for me
 
 docker run --rm -it -v "%cd%":C:\api microsoft/dotnet:2-runtime 
 
 map a port to 8080 of the host machine
 switch to windows containers
-`docker run --rm -it -v "%cd%":C:\api -p 8080:80 microsoft/aspnetcore:2`
+
+    docker run --rm -it -v "%cd%":C:\api -p 8080:80 microsoft/aspnetcore:2 
 then browse to localhost:8080
 
 switch to linux containers
 C: drive is not shared by default , so go to tray > settings > shared drives > C
-`docker run --rm -it -v "%cd%":/api -p 8080:80 microsoft/aspnetcore:2`
+
+    docker run --rm -it -v "%cd%":/api -p 8080:80 microsoft/aspnetcore:2 
 then browse to localhost:8080
 
-###building docker file 
+### building docker file 
 create the docker file 
-`docker build -t eiu165/generator .`
+
+    docker build -t eiu165/generator .    
+
 
 
     C:\src\aspnetcore-generator-api\api>docker image ls
@@ -55,4 +59,4 @@ create the docker file
 
 now you do not need to copy the file 
 
-`docker run --rm -it -p 8080:80 eiu165/generator`
+    docker run --rm -it -p 8080:80 eiu165/generator 
