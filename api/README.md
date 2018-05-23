@@ -107,11 +107,12 @@ view the images
 
 
 ## docker compose   
-    docker-compose up -d
+    docker-compose up --help
+    docker-compose up --detach --build
     docker-compose logs
     docker-compose logs -f #follow the logs
     docker-compose down
-    docker-compose ps -s
+    docker-compose ps --services
     docker ps
     docker image list eiu/generator
     
