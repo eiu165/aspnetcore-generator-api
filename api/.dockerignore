@@ -1,4 +1,5 @@
 bin/
 obj/
-Dockerfile
+Dockerfile 
 .dockerignore
+docker-compose.yml 

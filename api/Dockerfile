@@ -1,3 +1,4 @@
+ 
 # Build Stage
 FROM microsoft/aspnetcore-build:2 AS build-env
 WORKDIR /api
@@ -12,4 +13,4 @@ RUN dotnet publish -o /publish
 FROM microsoft/aspnetcore:2
 WORKDIR /publish
 COPY --from=build-env /publish .
-ENTRYPOINT ["dotnet", "api.dll"]
+ENTRYPOINT ["dotnet", "api.dll"] 

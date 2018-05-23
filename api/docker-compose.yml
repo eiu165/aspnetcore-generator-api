@@ -1,10 +1,10 @@
-version: '3.1'
+version: '3.5'
 
-services:
+services: 
   generator:
-    build:
+    build: 
       context: .
-    image: aspnetcore/generator:multi
+    image: eiu165/generator:multi
     ports:
       - "8080:80"
   mail:
