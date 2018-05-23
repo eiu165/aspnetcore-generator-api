@@ -58,7 +58,7 @@ create the docker file
 
 now you do not need to copy the file 
 
-    docker run --rm -it -p 8080:80 eiu165/generator 
+    docker run --rm -it -p 8080:80 eiu165/generator:multi 
 
 
 
@@ -96,3 +96,11 @@ now run the container
 view the images 
 
     docker image ls eiu165/generator
+
+
+## multi container build (new container for build and runtime) 
+
+    docker image ls eiu165/generator
+    docker build -t eiu165/generator:multi .
+    docker run --rm -it -p 8080:80 eiu165/generator:multi
+
