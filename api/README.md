@@ -46,12 +46,11 @@ C: drive is not shared by default , so go to tray > settings > shared drives > C
     docker run --rm -it -v "%cd%":/api -p 8080:80 microsoft/aspnetcore:2 
 then browse to localhost:8080
 
-### building docker file 
+## building docker file 
 create the docker file 
 
     docker build -t eiu165/generator .    
-
-
+ 
 
     C:\src\aspnetcore-generator-api\api>docker image ls
     REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
@@ -60,3 +59,30 @@ create the docker file
 now you do not need to copy the file 
 
     docker run --rm -it -p 8080:80 eiu165/generator 
+
+
+
+## automation 
+
+start to trace the events
+    docker events --format "{{json .}}" | jq
+    docker run --rm -it -p 8080:80 eiu165/generator 
+    docker stop {name}
+
+
+    docker run --rm -it -v "%cd%":/api -p 8080:80 microsoft/aspnetcore:2 
+    cd /api
+    rm -rf bin/ obj/
+    dotnet restore
+    dotnet publish
+
+
+new docker file: 
+    FROM microsoft/aspnetcore:2 
+    WORKDIR /api 
+    COPY . .   
+    RUN dotnet restore 
+    RUN dotnet publish
+    ENTRYPOINT ["dotnet", "/publish/api.dll"]
+
+
