@@ -1,0 +1,7 @@
+version: '3.5'
+
+services: 
+  generator:
+    image: eiu165/generator:multi
+    ports:
+      - "8080:80"
