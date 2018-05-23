@@ -104,3 +104,17 @@ view the images
     docker build -t eiu165/generator:multi .
     docker run --rm -it -p 8080:80 eiu165/generator:multi
 
+
+
+## docker compose   
+    docker-compose up -d
+    docker-compose logs
+    docker-compose logs -f #follow the logs
+    docker-compose down
+    docker-compose ps -s
+    docker ps
+    docker image list eiu/generator
+    
+## mailhog
+    dotnet add package MailKit
+

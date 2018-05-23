@@ -2,6 +2,13 @@ version: '3.5'
 
 services: 
   generator:
+    build: 
+      context: .
     image: eiu165/generator:multi
     ports:
       - "8080:80"
+  mail:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
