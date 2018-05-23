@@ -85,4 +85,14 @@ new docker file:
     RUN dotnet publish
     ENTRYPOINT ["dotnet", "/publish/api.dll"]
 
+now build the image
 
+    docker build -t eiu165/generator:build . 
+
+now run the container 
+
+    docker run --rm -it -p 8080:80 eiu165/generator:build
+
+view the images 
+
+    docker image ls eiu165/generator
