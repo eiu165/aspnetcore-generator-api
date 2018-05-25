@@ -10,7 +10,6 @@ services:
             - 8111:8111
     teamcity-agent:
         image: aspnetcore/teamcity-agent-with-compose:2017.1.2
-        build: ./agent
         environment:
             SERVER_URL: http://teamcity:8111
         volumes:

@@ -107,15 +107,22 @@ view the images
 
 
 ## docker compose   
-    docker-compose up --help
-    docker-compose up --detach --build
+    docker-compose up -d
     docker-compose logs
     docker-compose logs -f #follow the logs
     docker-compose down
-    docker-compose ps --services
+    docker-compose ps -s
     docker ps
     docker image list eiu/generator
     
 ## mailhog
     dotnet add package MailKit
 
+## remove all docker images 
+https://stackoverflow.com/a/17237701
+
+    $ docker ps --filter "status=exited" | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+or 
+    docker images prune    # this will get rid of all intermediate images with no tag
+
+    
